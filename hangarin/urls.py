@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tasks.views import HomePageView, CategoryList, CategoryCreateView, CategoryUpdateView, CategoryDeleteView, NoteList, NoteCreateView, NoteUpdateView
+from tasks.views import HomePageView, CategoryList, CategoryCreateView, CategoryUpdateView, CategoryDeleteView, NoteList, NoteCreateView, NoteUpdateView, NoteDeleteView, PriorityList, PriorityCreateView, PriorityUpdateView, PriorityDeleteView
 from tasks import views
 
 urlpatterns = [
@@ -30,5 +30,11 @@ urlpatterns = [
     path('note_list', NoteList.as_view(), name='note-list'),
     path('note_list/add', NoteCreateView.as_view(), name='note-add'),
     path('note_list/<pk>',NoteUpdateView.as_view(), name='note-update'),
+    path('note_list/<pk>/delete', NoteDeleteView.as_view(), name='note-delete'),
+    
+    path('priority_list', PriorityList.as_view(), name='priority-list'),
+    path('priority_list/add', PriorityCreateView.as_view(), name='priority-add'),
+    path('priority_list/<pk>',PriorityUpdateView.as_view(), name='priority-update'),
+    path('priority_list/<pk>/delete', PriorityDeleteView.as_view(), name='priority-delete'),
     
 ]

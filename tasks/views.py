@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from tasks.models import Category, Note
-from tasks.forms import CategoryForm, NoteForm
+from tasks.models import Category, Note, Priority
+from tasks.forms import CategoryForm, NoteForm, PriorityForm
 from django.urls import reverse_lazy
 
 class HomePageView(ListView):
@@ -23,6 +23,13 @@ class NoteList(ListView):
     template_name = 'note_list.html'
     paginate_by = 5
     
+class PriorityList(ListView):
+    model = Priority
+    context_object_name = 'priority'
+    template_name = 'priority_list.html'
+    paginate_by = 5
+
+    
     
     
 
@@ -38,6 +45,13 @@ class NoteCreateView(CreateView):
     form_class = NoteForm
     template_name = 'note_form.html'
     success_url = reverse_lazy('note-list')
+    
+class PriorityCreateView(CreateView):
+    model = Priority
+    form_class = PriorityForm
+    template_name = 'priority_form.html'
+    success_url = reverse_lazy('priority-list')
+    
     
     
     
@@ -55,6 +69,12 @@ class NoteUpdateView(UpdateView):
     template_name = 'note_form.html'
     success_url = reverse_lazy('note-list')
     
+class PriorityUpdateView(UpdateView):
+    model = Priority
+    form_class = PriorityForm
+    template_name = 'priority_form.html'
+    success_url = reverse_lazy('priority-list')
+    
     
     
     
@@ -63,3 +83,13 @@ class CategoryDeleteView(DeleteView):
     model = Category
     template_name = 'category_del.html'
     success_url = reverse_lazy('category-list')
+    
+class NoteDeleteView(DeleteView):
+    model = Note
+    template_name = 'note_del.html'
+    success_url = reverse_lazy('note-list')
+
+class PriorityDeleteView(DeleteView):
+    model = Priority
+    template_name = 'priority_del.html'
+    success_url = reverse_lazy('priority-list')

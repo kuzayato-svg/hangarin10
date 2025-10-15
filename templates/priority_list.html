@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="pull-right">
-                                <a href="{% url 'note-add' %}" class="btn btn-success btn-rounded">Add Note</a>
+                                <a href="{% url 'priority-add' %}" class="btn btn-success btn-rounded">Add Priorities</a>
                             </div>
                         </div>
                     </div>
@@ -48,8 +48,8 @@
                                     <td>{{ object.college }}</td>
                                     <td>{{ object.description }}</td>
                                     <td>
-                                        <a href="note_list/{{ object.id }}">Edit</a>
-                                        <a href="note_list/{{ object.id }}/delete" class="text-danger">Delete</a>
+                                        <a href="priority_list/{{ object.id }}">Edit</a>
+                                        <a href="priority_list/{{ object.id }}/delete" class="text-danger">Delete</a>
                                     </td>
                                 </tr>
                                 {% empty %}
