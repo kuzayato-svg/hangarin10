@@ -16,11 +16,15 @@ class CategoryList(ListView):
     context_object_name = 'category'
     template_name = 'category_list.html'
     paginate_by = 5  
+    
 class NoteList(ListView):
     model = Note 
     context_object_name = 'note'
     template_name = 'note_list.html'
     paginate_by = 5
+    
+    
+    
 
 ##CreateView
 class CategoryCreateView(CreateView):
@@ -28,11 +32,15 @@ class CategoryCreateView(CreateView):
     form_class = CategoryForm
     template_name = 'category_form.html'
     success_url = reverse_lazy('category-list')
+    
 class NoteCreateView(CreateView):
     model = Note
     form_class = NoteForm
     template_name = 'note_form.html'
     success_url = reverse_lazy('note-list')
+    
+    
+    
     
 ##UpdateView
 class CategoryUpdateView(UpdateView):
@@ -40,6 +48,15 @@ class CategoryUpdateView(UpdateView):
     form_class = CategoryForm
     template_name = 'category_form.html'
     success_url = reverse_lazy('category-list')
+
+class NoteUpdateView(UpdateView):
+    model = Note
+    form_class = NoteForm
+    template_name = 'note_form.html'
+    success_url = reverse_lazy('note-list')
+    
+    
+    
     
 ##DeleteView
 class CategoryDeleteView(DeleteView):
