@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView
-from .models import Task  # Using Task instead of Organization
+from django.views.generic.list import ListView
+from tasks.models import Category 
 
 class HomePageView(ListView):
-    model = Task  # Changed from Organization to Task
-    context_object_name = 'home'  # Keeping same as PDF
-    template_name = "home.html"
+    model = Category 
+    context_object_name = 'home' 
+    template_name = 'home.html'
