@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from tasks.views import HomePageView, CategoryList, CategoryCreateView, CategoryUpdateView, CategoryDeleteView, NoteList, NoteCreateView, NoteUpdateView, NoteDeleteView, PriorityList, PriorityCreateView, PriorityUpdateView, PriorityDeleteView
+from tasks.views import HomePageView, CategoryList, CategoryCreateView, CategoryUpdateView, CategoryDeleteView, NoteList, NoteCreateView, NoteUpdateView, NoteDeleteView, PriorityList, PriorityCreateView, PriorityUpdateView, PriorityDeleteView, SubTaskList, SubTaskCreateView, SubTaskUpdateView, SubTaskDeleteView, TaskList, TaskCreateView, TaskUpdateView, TaskDeleteView
 from tasks import views
 
 urlpatterns = [
@@ -36,5 +36,15 @@ urlpatterns = [
     path('priority_list/add', PriorityCreateView.as_view(), name='priority-add'),
     path('priority_list/<pk>',PriorityUpdateView.as_view(), name='priority-update'),
     path('priority_list/<pk>/delete', PriorityDeleteView.as_view(), name='priority-delete'),
+    
+    path('subtask_list', SubTaskList.as_view(), name='subtask-list'),
+    path('subtask_list/add', SubTaskCreateView.as_view(), name='subtask-add'),
+    path('subtask_list/<pk>',SubTaskUpdateView.as_view(), name='subtask-update'),
+    path('subtask_list/<pk>/delete', SubTaskDeleteView.as_view(), name='subtask-delete'),
+    
+    path('task_list', TaskList.as_view(), name='task-list'),
+    path('task_list/add', TaskCreateView.as_view(), name='task-add'),
+    path('task_list/<pk>',TaskUpdateView.as_view(), name='task-update'),
+    path('task_list/<pk>/delete', TaskDeleteView.as_view(), name='task-delete'),
     
 ]

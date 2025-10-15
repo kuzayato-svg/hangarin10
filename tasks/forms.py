@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from tasks.models import Category, Note, Priority
+from tasks.models import Category, Note, Priority, SubTask, Task
 
 class CategoryForm(ModelForm):
     class Meta:
@@ -13,6 +13,16 @@ class NoteForm(ModelForm):
         fields = "__all__"
         
 class PriorityForm(ModelForm):
+    class Meta:
+        model = Note
+        fields = "__all__"
+        
+class SubTaskForm(ModelForm):
+    class Meta:
+        model = Note
+        fields = "__all__"
+        
+class TaskForm(ModelForm):
     class Meta:
         model = Note
         fields = "__all__"

@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from tasks.models import Category, Note, Priority
-from tasks.forms import CategoryForm, NoteForm, PriorityForm
+from tasks.models import Category, Note, Priority, SubTask, Task
+from tasks.forms import CategoryForm, NoteForm, PriorityForm, SubTaskForm, TaskForm
 from django.urls import reverse_lazy
 
 class HomePageView(ListView):
@@ -29,6 +29,17 @@ class PriorityList(ListView):
     template_name = 'priority_list.html'
     paginate_by = 5
 
+class SubTaskList(ListView):
+    model = SubTask
+    context_object_name = 'subtask'
+    template_name = 'subtask_list.html'
+    paginate_by = 5  
+    
+class TaskList(ListView):
+    model = Task
+    context_object_name = 'task'
+    template_name = 'task_list.html'
+    paginate_by = 5  
     
     
     
@@ -51,6 +62,18 @@ class PriorityCreateView(CreateView):
     form_class = PriorityForm
     template_name = 'priority_form.html'
     success_url = reverse_lazy('priority-list')
+    
+class SubTaskCreateView(CreateView):
+    model = SubTask
+    form_class = SubTaskForm
+    template_name = 'subtask_form.html'
+    success_url = reverse_lazy('subtask-list')
+    
+class TaskCreateView(CreateView):
+    model = Task
+    form_class = TaskForm
+    template_name = 'task_form.html'
+    success_url = reverse_lazy('task-list')
     
     
     
@@ -75,6 +98,19 @@ class PriorityUpdateView(UpdateView):
     template_name = 'priority_form.html'
     success_url = reverse_lazy('priority-list')
     
+class SubTaskUpdateView(UpdateView):
+    model = SubTask
+    form_class = SubTaskForm
+    template_name = 'subtask_form.html'
+    success_url = reverse_lazy('subtask-list')
+    
+class TaskUpdateView(UpdateView):
+    model = Task
+    form_class = TaskForm
+    template_name = 'task_form.html'
+    success_url = reverse_lazy('task-list')
+
+    
     
     
     
@@ -93,3 +129,15 @@ class PriorityDeleteView(DeleteView):
     model = Priority
     template_name = 'priority_del.html'
     success_url = reverse_lazy('priority-list')
+    
+class SubTaskDeleteView(DeleteView):
+    model = SubTask
+    template_name = 'subtask_del.html'
+    success_url = reverse_lazy('subtask-list')
+    
+class TaskDeleteView(DeleteView):
+    model = Task
+    template_name = 'task_del.html'
+    success_url = reverse_lazy('task-list')
+    
+    
