@@ -1,4 +1,5 @@
 {% load static %}
+{% load pwa %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,7 @@
 	<link rel="stylesheet" href="{% static 'css/ready.css' %}">
 	<link rel="stylesheet" href="{% static 'css/demo.css' %}">
 </head>
+{% progressive_web_app_meta %}
 <body>
 	<div class="wrapper">
 		<div class="main-header">
@@ -203,18 +205,6 @@
 								<p>Tasks</p>
 								<span class="badge badge-danger">25</span>
 							</a>
-						</li>
-						<li class="nav-item">
-							<a href="icons.html">
-								<i class="la la-fonticons"></i>
-								<p>Icons</p>
-							</a>
-						</li>
-						<li class="nav-item update-pro">
-							<button  data-toggle="modal" data-target="#modalUpdate">
-								<i class="la la-hand-pointer-o"></i>
-								<p>Update To Pro</p>
-							</button>
 						</li>
 					</ul>
 				</div>

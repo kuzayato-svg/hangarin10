@@ -21,6 +21,7 @@ from tasks import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('', include('pwa.urls')),  # PWA app
     path("accounts/", include("allauth.urls")), # allauth routes
     path('', views.HomePageView.as_view(), name='home'),
     path('category_list', CategoryList.as_view(), name='category-list'),
