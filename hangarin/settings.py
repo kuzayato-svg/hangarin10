@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import socket
-
+from django.urls import reverse_lazy
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,15 +27,15 @@ SECRET_KEY = 'django-insecure-w9(m&s#fci7t7u0=(4@1$&w50r9+#hl!urbswb^p*eq)$n0-*)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['kuzayato.pythonanywhere.com','127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'kuzayato.pythonanywhere.com']
 
 
 # Application definition
 
 if "pythonanywhere" in socket.gethostname():
-    SITE_ID = 2 # production site (psusphere.pythonanywhere.com)
+    SITE_ID = 5 # production site (psusphere.pythonanywhere.com)
 else:
-    SITE_ID = 1 # local site (127.0.0.1:8000)
+    SITE_ID = 3 # local site (127.0.0.1:8000)
 
 AUTHENTICATION_BACKENDS = [
 'django.contrib.auth.backends.ModelBackend',
@@ -151,8 +151,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/' # where @login_required will send users
 LOGIN_REDIRECT_URL = '/' # where to go after successful login
-LOGOUT_REDIRECT_URL = '/accounts/login/' # after logout, go back to login
-ACCOUNT_LOGOUT_REDIRECT_URL = '/' # where to redirect after logout
+LOGOUT_REDIRECT_URL = '/' # after logout, go back to login
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/' # where to redirect after logout
 ACCOUNT_LOGOUT_ON_GET = True # logout immediately on GET
 ACCOUNT_LOGIN_METHODS = {"username", "email"} # allow login with username OR email
 ACCOUNT_SIGNUP_FIELDS = [

@@ -14,15 +14,15 @@ class NoteForm(ModelForm):
         
 class PriorityForm(ModelForm):
     class Meta:
-        model = Note
+        model = Priority
         fields = "__all__"
         
 class SubTaskForm(ModelForm):
     class Meta:
-        model = Note
+        model = SubTask
         fields = "__all__"
         
 class TaskForm(ModelForm):
     class Meta:
-        model = Note
+        model = Task
         fields = "__all__"
